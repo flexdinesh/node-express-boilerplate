@@ -1,0 +1,17 @@
+{
+    "name": "application-name",
+    "version": "1.0.0",
+    "description": "Application Description",
+    "author": "Author name",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "body-parser": "1.12.x",
+        "express": "4.12.x",
+        "jade": "1.9.x",
+        "log4js": "0.6.x",
+        "nconf": "0.7.x",
+        "request": "2.55.x"
+    }
+}
