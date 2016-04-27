@@ -48,17 +48,17 @@ var logger = log4js.getLogger('adapCom');
 
 /* HTTPS SSL Support (Port:443) */
 
-var secureOptions = {
+/*var secureOptions = {
     key: fs.readFileSync('config/ssl/key.pem'),
     cert: fs.readFileSync('config/ssl/cert.pem'),
     rejectUnauthorized: false
-};
+};*/
 
 
 /* HTTP Server (Port: 3000) */
 
 var httpServer = http.createServer(app);
-var httpsServer = https.createServer(secureOptions, app);
+// var httpsServer = https.createServer(secureOptions, app);
 
 
 /*Router Declarations*/
@@ -101,26 +101,7 @@ app.use(function(err, req, res, next) {
 /*Starting the server*/
 
 httpServer.listen(nconf.get('httpPort'));
-httpsServer.listen(nconf.get('httpsPort'));
+// httpsServer.listen(nconf.get('httpsPort'));
 logger.info('HTTP Server Initiated on port %s at %s : ', httpServer.address().port, httpServer.address().address);
-logger.info('HTTPS Server Initiated on port %s at %s : ', httpsServer.address().port, httpsServer.address().address);
+// logger.info('HTTPS Server Initiated on port %s at %s : ', httpsServer.address().port, httpsServer.address().address);
 
-
-// TODO - find where these methods are used
-/*
-function sendResponse(json, handler, object) {
-    var arr = object[handler]().split(",");
-    var arr_length = arr.length;
-    var returnJson = {};
-    for (var i = 0; i < arr_length; i++) {
-        var new_arr = arr[i].split('|');
-        returnJson[new_arr[0]] = json[new_arr[1]];
-    }
-    return JSON.stringify(returnJson);
-}
-
- // Special character escaping for json
-function jsonEscape(str) {
-    return str.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
-}
-*/

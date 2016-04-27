@@ -13,7 +13,7 @@ applications:
   # this is the host name of your app
   # modify to make unique across the mybluemix.net domain
 
-  # host:    avnetsentiment-sentiment-analysis-node
+  # host:    my-hostname
 
   # amount of RAM we'll need.  Prolly could get by with less!
 
